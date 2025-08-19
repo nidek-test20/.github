@@ -1,0 +1,312 @@
+name: 障害報告
+description: QMS-S275-F2「ソフトウェア障害報告書」の代替となるものです
+title: "＜ここにタイトルを入力してください＞"
+labels: ["障害報告", "新規"]
+body:
+  - type: textarea
+    id: development_environment
+    attributes:
+      label: 発生した環境
+      placeholder: 装置のシリアル番号やOS、仕向けといった情報を可能な限り詳しく記載する
+  - type: textarea
+    id: phenomenon
+    attributes:
+      label: 現象
+      placeholder: 発生した現象を記述する。現象がより伝わり易いよう記載する
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: あるべき動作
+      placeholder: 根拠となる仕様書などを引用する
+  - type: textarea
+    id: procedure
+    attributes:
+      label: 前提条件と再現手順
+      placeholder: 障害の確認方法。可能な限りシンプルな再現方法を記載する
+  - type: input
+    id: number_of_reproductions
+    attributes:
+      label: 再現回数
+      placeholder: 発生回数/実施回数 　※発生頻度を記載する。%で記載しない
+  - type: input
+    id: related_scripts
+    attributes:
+      label: 検出したテスト記録
+      placeholder: 現象が発生するテストスクリプトIDの情報を記載する
+  - type: input
+    id: related_scripts3
+    attributes:
+      label: プロジェクト名
+      placeholder: プロジェクト名を選択する
+  - type: input
+    id: related_scripts4
+    attributes:
+      label: SWシステム名
+      placeholder: ソフトウェアシステム名を記載します。特に指定がない場合は空欄で可
+  - type: input
+    id: related_scripts5
+    attributes:
+      label: バージョン
+      placeholder: 障害が発生したソフトウェアのバージョンを選択します
+  - type: dropdown
+    id: related_scripts6
+    attributes:
+      label: 発見フェーズ
+      options:
+        - ソフトウェア要求分析
+        - ソフトウェアアーキテクチャ設計
+        - ソフトウェア詳細設計
+        - コーディング
+        - ソフトウェア単体テスト
+        - ソフトウェア結合テスト
+        - ソフトウェア総合テスト
+        - リリース後
+  - type: dropdown
+    id: related_scripts7
+    attributes:
+      label: 発見アクティビティ
+      options:
+        - チームレビュー
+        - ウォークスルー
+        - インスペクション
+        - 単体テスト
+        - 結合テスト
+        - 総合テスト
+        - その他
+  - type: input
+    id: related_scripts8
+    attributes:
+      label: 参照情報
+      placeholder: テストフェーズで障害が見つかったときのテストスクリプト名。情報苦情DBや不適合DBなどで報告された場合はその管理番号を記載する
+  - type: dropdown
+    id: related_scripts9
+    attributes:
+      label: 重要度
+      options:
+        - 重大
+        - 高
+        - 低
+        - 微
+  - type: dropdown
+    id: related_scripts10
+    attributes:
+      label: 影響
+      options:
+        - 安全性
+        - 機能性
+        - 使用性
+        - セキュリティ
+        - 性能
+        - 保守性
+        - その他
+      multiple: true
+  - type: dropdown
+    id: related_scripts11
+    attributes:
+      label: 頻度
+      options:
+        - 頻繁
+        - 中
+        - 稀
+  - type: input
+    id: related_scripts12
+    attributes:
+      label: 提出者
+  - type: input
+    id: related_scripts13
+    attributes:
+      label: 提出日
+      placeholder: 提出者の記名時に記入ください
+  - type: checkboxes
+    id: related_scripts14
+    attributes:
+      label: 障害起票完了
+      options:
+        - label: 起票時の入力に漏れがないことを確認しました
+  - type: input
+    id: related_scripts28
+    attributes:
+      label: 調査者
+  - type: input
+    id: related_scripts29
+    attributes:
+      label: 調査開始日
+      placeholder: 調査者の記名時に記入ください
+  - type: input
+    id: related_scripts30
+    attributes:
+      label: 調査期日
+  - type: textarea
+    id: related_scripts15
+    attributes:
+      label: 調査結果
+      placeholder: 第三者が調査結果内容を確認できる情報を記述する
+  - type: textarea
+    id: related_scripts16
+    attributes:
+      label: 処置方法
+      placeholder: 修正対象、修正概要、修正見積もり、追加テストの有無およびテスト工数を記述する
+  - type: textarea
+    id: related_scripts17
+    attributes:
+      label: 判断理由
+      placeholder: 対応の必要有無の判断とその理由を記載する。記載は障害管理責任者が行う
+  - type: dropdown
+    id: related_scripts18
+    attributes:
+      label: 欠陥混入フェーズ
+      options:
+        - 上位の設計開発
+        - ソフトウェア要求分析
+        - ソフトウェアアーキテクチャ設計
+        - ソフトウェア詳細設計
+        - コーディング
+        - ソフトウェア単体テスト
+        - ソフトウェア結合テスト
+        - ソフトウェア総合テスト
+  - type: textarea
+    id: related_scripts19
+    attributes:
+      label: 欠陥混入バージョン
+      placeholder: 欠陥が混入しているソフトウェアのバージョンを記載する。発見に用いたソフトウェアだけでなく、過去のリリースを含め欠陥が含まれているバージョンをすべて記載する
+  - type: dropdown
+    id: related_scripts20
+    attributes:
+      label: 対応分類
+      options:
+        - 欠陥
+        - 障害
+  - type: dropdown
+    id: related_scripts21
+    attributes:
+      label: カテゴリ
+      options:
+        - ハードウェア
+        - ソフトウェア
+        - サービス
+        - データ入力ミス
+        - 操作ミス
+        - その他
+      multiple: true
+  - type: dropdown
+    id: related_scripts22
+    attributes:
+      label: 欠陥のタイプ
+      options:
+        - データ
+        - インターフェース
+        - フロー
+        - 性能
+        - 論理条件
+        - 記述
+        - 構文
+        - 標準
+        - SOUP
+        - その他
+  - type: dropdown
+    id: related_scripts23
+    attributes:
+      label: 優先度
+      options:
+        - 高
+        - 中
+        - 低
+  - type: dropdown
+    id: related_scripts24
+    attributes:
+      label: 原因重複
+      options:
+        - 新規
+        - 重複
+  - type: input
+    id: related_scripts25
+    attributes:
+      label: 確認者
+  - type: input
+    id: related_scripts26
+    attributes:
+      label: 確認日
+      placeholder: 確認者の記名時に記入ください
+  - type: checkboxes
+    id: related_scripts27
+    attributes:
+      label: 障害調査完了
+      options:
+        - label: 障害調査結果に問題がないことを確認しました
+  - type: input
+    id: related_scripts31
+    attributes:
+      label: 承認者
+  - type: input
+    id: related_scripts32
+    attributes:
+      label: 承認日
+      placeholder: 承認者の記名時に記入ください
+  - type: checkboxes
+    id: related_scripts33
+    attributes:
+      label: 障害調査承認
+      options:
+        - label: 障害の対応方針を決定しました
+  - type: textarea
+    id: related_scripts34
+    attributes:
+      label: 処置内容
+      placeholder: 修正内容及び調査結果に追加する障害を説明する
+  - type: input
+    id: related_scripts35
+    attributes:
+      label: 修正担当者
+  - type: input
+    id: related_scripts36
+    attributes:
+      label: 修正完了日
+      placeholder: 
+  - type: checkboxes
+    id: related_scripts37
+    attributes:
+      label: 修正完了確認
+      options:
+        - label: 修正が完了しました
+  - type: input
+    id: related_scripts38
+    attributes:
+      label: 修正済みバージョン
+      placeholder: 修正を適用するバージョン
+  - type: textarea
+    id: related_scripts39
+    attributes:
+      label: 確認内容
+      placeholder: 修正を確認するにあたり実施したテストケースを引用する
+  - type: input
+    id: related_scripts40
+    attributes:
+      label: 確認者
+  - type: input
+    id: related_scripts41
+    attributes:
+      label: 確認日
+      placeholder: 確認者の記名時に記入ください
+  - type: checkboxes
+    id: related_scripts42
+    attributes:
+      label: 修正完了確認
+      options:
+        - label: ソフトウェアが修正されていることを確認しました
+  - type: input
+    id: related_scripts43
+    attributes:
+      label: 承認者
+  - type: input
+    id: related_scripts44
+    attributes:
+      label: 承認日
+      placeholder: 承認者の記名時に記入ください
+  - type: checkboxes
+    id: related_scripts45
+    attributes:
+      label: 終結確認
+      options:
+        - label: 障害管理プロセスが終結したことを確認しました
+ 
+
