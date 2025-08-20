@@ -1,0 +1,42 @@
+name: Mention using Teams
+
+on: 
+  issues:
+    types:
+      - opened
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message to Microsoft Teams
+        uses: skitionek/notify-microsoft-teams@v1.0.9
+        if: always()
+        with:
+          webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          title: "新しいIssueが作成されました"
+          raw: |
+            {
+              "type": "message",
+              "attachments": [
+                {
+                  "contentType": "application/vnd.microsoft.card.adaptive",
+                  "content": {
+                    "type": "AdaptiveCard",
+                    "body": [
+                      {
+                        "type": "TextBlock",
+                        "text": "Issueタイトル: ${{ github.event.issue.title }}"
+                      },
+                      {
+                        "type": "TextBlock",
+                        "text": "作成者: ${{ github.event.issue.user.login }}"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          job: ${{ toJson(job) }}
+          steps: ${{ toJson(steps) }}
+          needs: ${{ toJson(needs) }}
